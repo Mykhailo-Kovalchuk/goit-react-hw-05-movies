@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import SearchMovie from '../../components/SearchMovie/SearchMovie';
 // import MovieDetails from '../../components/MovieDetails/MovieDetails'
 
@@ -9,7 +10,7 @@ const Movies = () => {
   const [queryResponse, setQueryResponse] = useState([]);
 
   const onSubmit = formData => {
-    console.log(formData);
+    // console.log(formData);
     setQueryWord(formData);
     // console.log(`new WORD ${formData}`)
     return formData;
@@ -31,26 +32,19 @@ const Movies = () => {
 
   console.log(queryResponse);
 
-const responseArray = queryResponse?.map(movie => {
-  return (
-    <li key={movie.id}>
-        {/* <Link to={`/movies/${movie.id}`}> */}
-        {movie.title}
-        {/* </Link> */}
+  const responseArray = queryResponse?.map(movie => {
+    return (
+      <li key={movie.id}>
+        <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
       </li>
-  )
-})
-
+    );
+  });
 
   return (
     <div>
       <SearchMovie onSubmit={onSubmit} />
 
-<ul>
-{responseArray}
-</ul>
-
-
+      <ul>{responseArray}</ul>
 
       {/* <MovieDetails userQuery={queryResponse}/> */}
     </div>

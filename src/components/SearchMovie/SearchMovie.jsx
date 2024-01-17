@@ -3,9 +3,7 @@ import css from './searchMovie.module.css';
 
 
 const SearchMovie = ({onSubmit}) => {
-  // const userQuery = fetchMoviesInfo();
-
-  const submitHandler = event => {
+   const submitHandler = event => {
 event.preventDefault()
     const inputValue = event.currentTarget.elements.searchInput.value;
     // console.log(inputValue);
@@ -15,7 +13,6 @@ event.preventDefault()
 
   return (
     <div>
-      SearchMovie
       <form className={css.form} onSubmit={submitHandler}>
         <input
           name="searchInput"
