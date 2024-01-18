@@ -87,15 +87,14 @@ export function fetchMovieById(movieId) {
     .then(resp => {
       // console.log(resp)
       // console.log(resp.data);
-      return resp.data
+      return resp.data;
     })
     .catch(error => {
       console.log(error);
     });
 }
 
-
-// Cast 
+// Cast
 
 export function fetchCast(movieId) {
   const URL = `${BASE_URL}movie/${movieId}/credits?api_key=${API_KEY}`;
@@ -108,7 +107,7 @@ export function fetchCast(movieId) {
     .then(resp => {
       // console.log(resp)
       // console.log(resp.data.cast);
-      return resp.data.cast
+      return resp.data.cast;
     })
     .catch(error => {
       console.log(error);
@@ -125,9 +124,9 @@ export function fetchReviews(movieId) {
   return axios
     .get(URL)
     .then(resp => {
-      console.log(resp)
-      console.log(resp.data.results);
-      return resp.data.results
+      // console.log(resp)
+      // console.log(resp.data.results);
+      return resp.data.results;
     })
     .catch(error => {
       console.log(error);

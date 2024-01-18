@@ -1,4 +1,4 @@
-import { NavLink, Routes, Route } from 'react-router-dom';
+import { NavLink, Routes, Route, Navigate } from 'react-router-dom';
 
 import Home from '../pages/Home/Home.jsx';
 import Movies from '../pages/Movies/Movies.jsx';
@@ -47,10 +47,10 @@ export const App = () => {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/movies" element={<Movies />} />
+          <Route path="/movies/*" element={<Movies />} />
 
           <Route path="/movies/:movieId/*" element={<MovieDetails />} />
-          {/* <Route path="/movies/:movieId/:searchmovie" element={<SearchMovie />} /> */}
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </main>
     </div>

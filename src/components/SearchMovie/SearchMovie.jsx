@@ -1,14 +1,12 @@
 import React from 'react';
 import css from './searchMovie.module.css';
 
-
-const SearchMovie = ({onSubmit}) => {
-   const submitHandler = event => {
-event.preventDefault()
+const SearchMovie = ({ onSubmit }) => {
+  const submitHandler = event => {
+    event.preventDefault();
     const inputValue = event.currentTarget.elements.searchInput.value;
     // console.log(inputValue);
     onSubmit(inputValue.toLowerCase());
-
   };
 
   return (
@@ -21,7 +19,6 @@ event.preventDefault()
           required
           autoFocus
           placeholder="Search movie"
-          
         />
         <button type="submit" className={css.buttonSearch}>
           Search Movie

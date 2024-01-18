@@ -61,7 +61,7 @@ const MovieDetails = () => {
         <li>
           {' '}
           <NavLink
-            to='cast' //оскільки є вкладений маршрут через зірочку * в app, то можна просто дописати кінцівку вкладеного маршруту.
+            to="cast" //оскільки є вкладений маршрут через зірочку * в app, то можна просто дописати кінцівку вкладеного маршруту.
             // className={({ isActive }) =>
             //   `${css.navLink} ${isActive ? css.active : ''}`
             // }
@@ -81,8 +81,8 @@ const MovieDetails = () => {
           </NavLink>
         </li>
       </ul>
-      <Routes> 
-        <Route path="cast" element={<Cast />} /> 
+      <Routes>
+        <Route path="cast" element={<Cast />} />
         <Route path="reviews" element={<Reviews />} />
       </Routes>
       {/* тут можемо в шлях просто вказати так як ми вказували в навігації */}

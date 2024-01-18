@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import SearchMovie from '../../components/SearchMovie/SearchMovie';
 // import MovieDetails from '../../components/MovieDetails/MovieDetails'
+
 
 import { fetchMoviesKeyWord } from '../../services-functions/api-movies';
 
@@ -24,6 +24,8 @@ const Movies = () => {
       // console.log(queryData.results)
       setQueryResponse(queryData.results);
 
+
+      
       return queryData.results;
     };
 
@@ -35,7 +37,7 @@ const Movies = () => {
   const responseArray = queryResponse?.map(movie => {
     return (
       <li key={movie.id}>
-        <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
+      
       </li>
     );
   });
