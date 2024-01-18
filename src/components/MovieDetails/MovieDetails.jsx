@@ -1,7 +1,7 @@
 import { React, useEffect, useState } from 'react';
 import Cast from '../Cast/Cast';
-import Review from '../Reviews/Reviews';
-import { Route, Routes, useParams } from 'react-router-dom';
+import Reviews from '../Reviews/Reviews';
+import { Route, Routes, useParams, NavLink } from 'react-router-dom';
 import { fetchMovieById } from '../../services-functions/api-movies';
 
 //тут зробити лішку в яку будуть приходити жанри, потім проганяти їх через map і повертати розмітку li і вставляти її в розмітку Ul нижче
@@ -27,13 +27,13 @@ const MovieDetails = () => {
     fetchMovieDetails();
   }, [movieId]);
 
-  console.log(movieDetails);
+  // console.log(movieDetails);
 
   const { id, genres, title, vote_average, overview, poster_path } =
     movieDetails;
   const poster = `https://image.tmdb.org/t/p/w500${poster_path}`;
 
-  console.log(poster);
+  // console.log(poster);
   const ganresList = genres?.map(genre => {
     return <li key={genre.id}>{genre.name}</li>;
   });
@@ -41,6 +41,7 @@ const MovieDetails = () => {
   return (
     <>
       <button> GoBack</button>
+
       <div key={id}>
         <img src={poster} alt="Movie poster" />
         <div>
@@ -56,12 +57,35 @@ const MovieDetails = () => {
       </div>
 
       <p>Additional infomation</p>
-      <ul>cast and reviews (через li зробити) </ul>
-
-      <Routes>
-        <Route path={`/movies/${movieId}/:cast`} element={<Cast />} />
-        <Route path={`/movies/${movieId}/:review`} element={<Review />} />
+      <ul>
+        <li>
+          {' '}
+          <NavLink
+            to='cast' //оскільки є вкладений маршрут через зірочку * в app, то можна просто дописати кінцівку вкладеного маршруту.
+            // className={({ isActive }) =>
+            //   `${css.navLink} ${isActive ? css.active : ''}`
+            // }
+          >
+            Cast
+          </NavLink>
+        </li>
+        <li>
+          {' '}
+          <NavLink
+            to="reviews" // мій перший спосіб який я зробив без зірочки, ефект такий самий
+            // className={({ isActive }) =>
+            //   `${css.navLink} ${isActive ? css.active : ''}`
+            // }
+          >
+            Reviews
+          </NavLink>
+        </li>
+      </ul>
+      <Routes> 
+        <Route path="cast" element={<Cast />} /> 
+        <Route path="reviews" element={<Reviews />} />
       </Routes>
+      {/* тут можемо в шлях просто вказати так як ми вказували в навігації */}
     </>
   );
 };

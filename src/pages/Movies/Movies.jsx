@@ -30,7 +30,7 @@ const Movies = () => {
     fetchQueryWordData();
   }, [queryWord]);
 
-  console.log(queryResponse);
+  // console.log(queryResponse);
 
   const responseArray = queryResponse?.map(movie => {
     return (

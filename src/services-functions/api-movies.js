@@ -86,7 +86,7 @@ export function fetchMovieById(movieId) {
     .get(URL)
     .then(resp => {
       // console.log(resp)
-      console.log(resp.data);
+      // console.log(resp.data);
       return resp.data
     })
     .catch(error => {
@@ -94,18 +94,42 @@ export function fetchMovieById(movieId) {
     });
 }
 
-// MovieDetails Image
-// export function fetchMovieImageById(movieId) {
-//   const URL = `${BASE_URL}movie/${movieId}/images?api_key=${API_KEY}`;
 
-//   return axios
-//     .get(URL)
-//     .then(resp => {
-//       // console.log(resp)
-//       console.log(resp.data);
-//       return resp.data;
-//     })
-//     .catch(error => {
-//       console.log(error);
-//     });
-// }
+// Cast 
+
+export function fetchCast(movieId) {
+  const URL = `${BASE_URL}movie/${movieId}/credits?api_key=${API_KEY}`;
+  // Токен доступу для читання API
+  // "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxZGRhOTYyOWE3M2ZhZmFiYTM3NTA0OTNlYTQ4NTVmZiIsInN1YiI6IjY1YTUwYjgzOGRiYzMzMDEyMzZhNjg1MSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.4k44fb6f12sXSLjD4YUDgIwseeksxPF-XRmodvwltRY"
+
+  // Example https://api.themoviedb.org/3/movie/157336?api_key=1dda9629a73fafaba3750493ea4855ff
+  return axios
+    .get(URL)
+    .then(resp => {
+      // console.log(resp)
+      // console.log(resp.data.cast);
+      return resp.data.cast
+    })
+    .catch(error => {
+      console.log(error);
+    });
+}
+
+// Reviews
+export function fetchReviews(movieId) {
+  const URL = `${BASE_URL}movie/${movieId}/reviews?api_key=${API_KEY}`;
+  // Токен доступу для читання API
+  // "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxZGRhOTYyOWE3M2ZhZmFiYTM3NTA0OTNlYTQ4NTVmZiIsInN1YiI6IjY1YTUwYjgzOGRiYzMzMDEyMzZhNjg1MSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.4k44fb6f12sXSLjD4YUDgIwseeksxPF-XRmodvwltRY"
+
+  // Example https://api.themoviedb.org/3/movie/157336?api_key=1dda9629a73fafaba3750493ea4855ff
+  return axios
+    .get(URL)
+    .then(resp => {
+      console.log(resp)
+      console.log(resp.data.results);
+      return resp.data.results
+    })
+    .catch(error => {
+      console.log(error);
+    });
+}
