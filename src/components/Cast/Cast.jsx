@@ -2,6 +2,7 @@ import React from 'react';
 import { fetchCast } from '../../services-functions/api-movies';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import css from './cast.module.css';
 
 const Cast = () => {
   const { movieId } = useParams();
@@ -25,8 +26,8 @@ const Cast = () => {
       const photo = `https://image.tmdb.org/t/p/w300${profile_path}`;
 
       return (
-        <li key={id}>
-          <img src={photo} alt={original_name} />
+        <li key={id} className={css.castListItem}>
+         <img src={photo} alt="No_Actor_Photo" className={css.castImage}/>
           <h4>{original_name}</h4>
           <p>Role: {character}</p>
         </li>
@@ -35,9 +36,8 @@ const Cast = () => {
   );
 
   return (
-    <div>
-      Cast
-      <ul>{cast}</ul>
+    <div className={css.castContainer}>
+      <ul className={css.castList}>{cast}</ul>
     </div>
   );
 };

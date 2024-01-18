@@ -1,0 +1,28 @@
+.reviewsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+}
+
+.reviewsList {
+  display: flex;
+  gap: 25px;
+  flex-direction: column;
+
+
+  padding: 0 50px;
+  max-width: 100%;
+}
+
+.reviewsAuthor {
+  font-size: 36px;
+}
+
+.reviewsText {
+  font-size: 24px;
+}
+
+.reviewsImage {
+  width: 400px;
+}

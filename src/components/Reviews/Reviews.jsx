@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchReviews } from '../../services-functions/api-movies';
 import { useEffect, useState } from 'react';
+import css from './reviews.module.css'
 
 const Reviews = () => {
   const { movieId } = useParams();
@@ -25,18 +26,17 @@ const Reviews = () => {
       const photo = `https://image.tmdb.org/t/p/w300${avatar_path}`;
 
       return (
-        <li key={id}>
-          <img src={photo} alt="Author" />
-          <h4>{author}</h4>
-          <p>{content}</p>
+        <li key={id} className={css.reviewsList}>
+          <img src={photo} alt="No_Author_Photo" className={css.reviewsImage}/>
+          <h4 className={css.reviewsAuthor}>{author}</h4>
+          <p className={css.reviewsText}>{content}</p>
         </li>
       );
     }
   );
 
   return (
-    <div>
-      Reviews
+    <div className={css.reviewsContainer}>
       {reviews}
     </div>
   );
