@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import css from './reviews.module.css'
 
 const Reviews = () => {
+  const defaultImg = 'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
   const { movieId } = useParams();
   // console.log(movieId);
 
@@ -27,7 +28,7 @@ const Reviews = () => {
 
       return (
         <li key={id} className={css.reviewsList}>
-          <img src={photo} alt="No_Author_Photo" className={css.reviewsImage}/>
+          <img src={avatar_path === null ? defaultImg : photo} alt="No_Author_Photo" className={css.reviewsImage}/>
           <h4 className={css.reviewsAuthor}>{author}</h4>
           <p className={css.reviewsText}>{content}</p>
         </li>

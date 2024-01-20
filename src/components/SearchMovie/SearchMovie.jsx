@@ -6,7 +6,7 @@ const SearchMovie = ({ onSubmit }) => {
 
 const [searchQuery, setSearchQuery] = useSearchParams();
 const query = searchQuery.get('query');
-console.log(query);
+// console.log(query);
 
 
   const submitHandler = event => {
@@ -28,6 +28,7 @@ setSearchQuery({query: inputValue})    ;
           required
           autoFocus
           placeholder="Movie title"
+          defaultValue={query}
         />
         <button type="submit" className={css.buttonSearch}> 
           Search Movie

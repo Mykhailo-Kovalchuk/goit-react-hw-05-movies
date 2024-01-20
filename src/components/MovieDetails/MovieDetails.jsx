@@ -16,11 +16,12 @@ const Reviews = lazy(() => import('../Reviews/Reviews'));
 
 //тут зробити лішку в яку будуть приходити жанри, потім проганяти їх через map і повертати розмітку li і вставляти її в розмітку Ul нижче
 const MovieDetails = () => {
+  const defaultImg = 'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
   const { movieId } = useParams();
   const [movieDetails, setMovieDetails] = useState('');
 
   const location = useLocation();
-  console.log(location);
+  // console.log(location);
 
   const backLinkRef = useRef(location.state?.from ?? '/');
 
@@ -60,7 +61,7 @@ const MovieDetails = () => {
       </Link>
 
       <div key={id} className={css.movieDetails}>
-        <img src={poster} alt="Movie poster" className={css.moviePoster} />
+        <img src={poster_path === null ? defaultImg : poster} alt="Movie poster" className={css.moviePoster} />
         <div className={css.movieInfo}>
           <h2 className={css.movieTitle}>{title}</h2>
           <p className={css.movieText}>

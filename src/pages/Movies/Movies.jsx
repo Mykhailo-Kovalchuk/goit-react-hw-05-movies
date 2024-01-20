@@ -1,22 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import SearchMovie from '../../components/SearchMovie/SearchMovie';
 // import MovieDetails from '../../components/MovieDetails/MovieDetails'
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import css from './movies.module.css';
+
+
 
 import { fetchMoviesKeyWord } from '../../services-functions/api-movies';
 
 const Movies = () => {
-  const [queryWord, setQueryWord] = useState('');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [queryWord, setQueryWord] = useState(searchParams.get('query') ?? '');
   const [queryResponse, setQueryResponse] = useState([]);
 
   const location = useLocation();
+  // const [value, setValue] = useState()
   // console.log(location);
 
+/////////////////////////// 
+
+useEffect(() => {
+  searchParams.set('query', queryWord);
+  setSearchParams(searchParams);
+}, [queryWord, searchParams, setSearchParams]);
+
+//////////////////////
   const onSubmit = formData => {
-    console.log(formData);
+
     setQueryWord(formData);
-    // console.log(`new WORD ${formData}`)
+
     return formData;
   };
 
@@ -50,7 +62,7 @@ const Movies = () => {
 
   return (
     <div>
-      <SearchMovie onSubmit={onSubmit} />
+      <SearchMovie onSubmit={onSubmit} defaultValue={queryWord}/>
 
       <ul className={css.moviesList}>{responseArray}</ul>
 
@@ -60,3 +72,5 @@ const Movies = () => {
 };
 
 export default Movies;
+
+
