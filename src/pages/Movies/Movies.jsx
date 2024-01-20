@@ -23,11 +23,16 @@ const Movies = () => {
   useEffect(() => {
     
     const fetchQueryWordData = async () => {
-      if (queryWord === null) {return}
-      const queryData = await fetchMoviesKeyWord(queryWord);
-      setQueryResponse(queryData);
-
-      return queryData;
+      if (queryWord === false) {return}
+      try {
+        const queryData = await fetchMoviesKeyWord(queryWord);
+        setQueryResponse(queryData);
+  
+        return queryData;
+      } catch (error) {
+        console.log(error.message)
+      }
+    
     };
 
     fetchQueryWordData();
@@ -47,7 +52,7 @@ const Movies = () => {
     <div>
       <SearchMovie onSubmit={onSubmit} />
 
-      <ul>{responseArray}</ul>
+      <ul className={css.moviesList}>{responseArray}</ul>
 
       {/* <MovieDetails userQuery={queryResponse}/> */}
     </div>

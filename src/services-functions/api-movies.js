@@ -62,7 +62,7 @@ export function fetchMoviesKeyWord(userQueryWord) {
     .get(URL)
     .then(resp => {
       //  console.log(resp.data)
-      console.log(resp.data.results);
+      // console.log(resp.data.results);
       return resp.data.results;
     })
     .catch(error => {

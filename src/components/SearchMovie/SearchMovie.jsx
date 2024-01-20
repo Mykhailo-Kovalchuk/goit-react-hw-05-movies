@@ -8,13 +8,14 @@ const [searchQuery, setSearchQuery] = useSearchParams();
 const query = searchQuery.get('query');
 console.log(query);
 
+
   const submitHandler = event => {
     event.preventDefault();
     const inputValue = event.currentTarget.elements.searchInput.value;
     // console.log(inputValue);
-
 setSearchQuery({query: inputValue})    ;
     onSubmit(inputValue.toLowerCase());
+    
   };
 
   return (
