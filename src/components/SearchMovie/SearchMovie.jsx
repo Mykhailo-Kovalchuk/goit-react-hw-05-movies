@@ -1,11 +1,19 @@
 import React from 'react';
 import css from './searchMovie.module.css';
+import { useSearchParams } from 'react-router-dom';
 
 const SearchMovie = ({ onSubmit }) => {
+
+const [searchQuery, setSearchQuery] = useSearchParams();
+const query = searchQuery.get('query');
+console.log(query);
+
   const submitHandler = event => {
     event.preventDefault();
     const inputValue = event.currentTarget.elements.searchInput.value;
     // console.log(inputValue);
+
+setSearchQuery({query: inputValue})    ;
     onSubmit(inputValue.toLowerCase());
   };
 
@@ -18,9 +26,9 @@ const SearchMovie = ({ onSubmit }) => {
           className={css.inputSearch}
           required
           autoFocus
-          placeholder="Search movie"
+          placeholder="Movie title"
         />
-        <button type="submit" className={css.buttonSearch}>
+        <button type="submit" className={css.buttonSearch}> 
           Search Movie
         </button>
       </form>

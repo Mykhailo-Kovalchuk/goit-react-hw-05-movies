@@ -1,0 +1,13 @@
+.movieList {
+    font-size: 28px;
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+}
+
+    
+    .movieList:hover{
+        color: aliceblue;
+        background-color: black;
+        border-radius: 5px;
+    }
+    

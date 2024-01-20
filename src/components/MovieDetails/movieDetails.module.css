@@ -4,8 +4,10 @@
   border: 1px solid black;
   width: 100px;
   padding: 10px;
-  margin: 25px;
+  margin: 25px 25px 25px 45px;
   border-radius: 20px;
+  font-size: 30px;
+text-decoration: none;
 }
 
 .movieContainer {
@@ -16,8 +18,8 @@
 
 .movieDetails {
   display: inline-flex;
-  justify-content: center;
-
+  justify-content: flex-start;
+padding-left: 45px;
   gap: 30px;
   padding-bottom: 15px;
   border-bottom: 2px solid gray;
@@ -61,6 +63,15 @@
   font-size: 36px;
   
 }
+
+.movieAddInfoLink {
+  margin-top: 0;
+  border-bottom: 1px solid black;
+  padding-bottom: 25px;
+}
+
+
+
 
 .active {
   padding: 0 5px;
