@@ -57,6 +57,7 @@ export function fetchMoviesInfo() {
 // }
 
 export function fetchMoviesKeyWord(userQueryWord) {
+  // const queryParam = userQueryWord !== "" ? `?query=${userQueryWord}` : "";
   const URL = `${BASE_URL}search/movie?query=${userQueryWord}&api_key=${API_KEY}`;
   return axios
     .get(URL)

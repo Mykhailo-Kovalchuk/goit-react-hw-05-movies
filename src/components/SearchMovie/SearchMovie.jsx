@@ -5,7 +5,7 @@ import { useSearchParams } from 'react-router-dom';
 const SearchMovie = ({ onSubmit }) => {
 
 const [searchQuery, setSearchQuery] = useSearchParams();
-const query = searchQuery.get('query');
+const query = searchQuery.get('query')
 // console.log(query);
 
 
@@ -13,7 +13,21 @@ const query = searchQuery.get('query');
     event.preventDefault();
     const inputValue = event.currentTarget.elements.searchInput.value;
     // console.log(inputValue);
-setSearchQuery({query: inputValue})    ;
+
+    // if (inputValue) {
+    //   setSearchQuery({ query: inputValue });
+    //   console.log(query)
+    // } else {
+    //   setSearchQuery({});
+    // }
+    if (inputValue) {
+      // Оновлюємо параметри пошуку лише після сабміту
+      setSearchQuery({ query: inputValue });
+    } else {
+      setSearchQuery({});
+    }
+
+
     onSubmit(inputValue.toLowerCase());
     
   };

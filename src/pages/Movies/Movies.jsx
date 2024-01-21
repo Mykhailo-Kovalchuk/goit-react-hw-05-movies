@@ -10,7 +10,7 @@ import { fetchMoviesKeyWord } from '../../services-functions/api-movies';
 
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [queryWord, setQueryWord] = useState(searchParams.get('query') ?? '');
+  const [queryWord, setQueryWord] = useState(searchParams.get('query') ?? "");
   const [queryResponse, setQueryResponse] = useState([]);
 
   const location = useLocation();
@@ -19,9 +19,10 @@ const Movies = () => {
 
 /////////////////////////// 
 
+
 useEffect(() => {
   searchParams.set('query', queryWord);
-  setSearchParams(searchParams);
+  // setSearchParams(searchParams); // Закоментовую, оськільки саме ця частинка відмальовувала мені порожній рядок запиту в url
 }, [queryWord, searchParams, setSearchParams]);
 
 //////////////////////
